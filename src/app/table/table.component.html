@@ -1,0 +1,26 @@
+<div class="table-header">
+    
+    <label for="">#</label>
+    <label for="">Nombre</label>
+    <label for="">Direccion</label>
+    <label for="">Estrellas</label>
+    <label for="">Fecha Creada</label>
+    <label for="">Estado</label>
+    <label for="">Acciones</label>
+
+</div>
+<div *ngFor="let restaurant of restaurants; let i = index;" class="table-row">
+    <label for="">{{i}}</label>
+    <label for="">{{restaurant.name}}</label>
+    <label for="">{{restaurant.address}}</label>
+    <label for="">{{restaurant.stars}}</label>
+    <label for="">{{restaurant.dateCreated | date: 'yyyy/MM/dd'}}</label>
+    <label for="">{{restaurant.status}}</label>
+    <div>
+        <button type="button" (click)="changeStatus(i, status.OPENED)">Abierto</button>
+        <br><br>
+        <button type="button" (click)="changeStatus(i, status.CLOSED)">Cerrado</button>
+        <br><br>
+        <button type="button" (click)="onDelete(i)">Eliminar</button>
+    </div>    
+</div>
